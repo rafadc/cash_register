@@ -15,10 +15,8 @@ class ShoppingCart
     @items[product_id] += quantity
   end
 
-  def line_items
-    @items.map do |product_id, quantity|
-      product = @product_repository.find(product_id)
-      LineItem.new(product_id, product.name, product.price, quantity)
-    end
+  def remove(product_id, quantity)
+    @items[product_id] -= quantity
+    @items.delete(product_id) if @items[product_id] <= 0
   end
 end

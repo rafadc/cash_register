@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-RSpec.describe TotalCalculator do
+RSpec.describe BillCalculator do
+  subject(:total_calculator) { described_class.new(shopping_cart, discount_repository:) }
+
   let(:discount_repository) { instance_double(Discounts::DiscountRepository) }
   let(:shopping_cart) { ShoppingCart.new }
-
-  subject(:total_calculator) { described_class.new(shopping_cart, discount_repository: ) }
 
   context 'when we have no discounts' do
     before do

@@ -2,7 +2,7 @@
 
 # This class is responsible for calculating the total amount of the shopping shopping_cart
 # It handles all the complexity of applying discounts and managing the items
-class TotalCalculator
+class BillCalculator
   def initialize(shopping_cart,
                  product_repository: ProductRepository.new,
                  discount_repository: Discounts::DiscountRepository.new)

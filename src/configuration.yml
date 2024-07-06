@@ -19,4 +19,4 @@ discounts:
   - code: "CF1"
     type: "bulk-discount-percentage"
     min_quantity: 3
-    discount_percent: 33
+    discount_percentage: 33

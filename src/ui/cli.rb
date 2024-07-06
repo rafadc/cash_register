@@ -3,6 +3,7 @@
 require_relative '../cash_register'
 
 require 'cli/ui'
+require 'terminal-table'
 
 product_repository = ProductRepository.new
 shopping_cart = ShoppingCart.new(product_repository:)
@@ -14,14 +15,10 @@ while running
   system('clear')
 
   CLI::UI::StdoutRouter.enable
-  CLI::UI::Frame.open('ShoppingCart') do
-    puts Ui::ShoppingCartView.new(shopping_cart:, product_repository:).render
-  end
+  puts Ui::ShoppingCartView.new(shopping_cart:, product_repository:).render
 
-  CLI::UI::Frame.open('Totals') do
-    bill = bill_calculator.calculate_for_cart(shopping_cart)
-    puts Ui::BillView.new(bill:).render
-  end
+  bill = bill_calculator.calculate_for_cart(shopping_cart)
+  puts Ui::BillView.new(bill:).render
 
   CLI::UI::Prompt.ask('add products to shopping cart') do |handler|
     product_repository.all.each do |product|

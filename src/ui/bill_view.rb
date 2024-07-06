@@ -8,12 +8,17 @@ module Ui
     end
 
     def render
-      output = @bill.line_items.map do |line_item|
-        item_description = "#{line_item.product_name}: #{line_item.quantity} x #{line_item.product_price}\n"
-        item_description += "#{line_item.discounts.join(' ')} \n" if line_item.discounts.any?
-        item_description + "\t\t= #{line_item.total_price.round(2)}"
-      end.join("\n")
-      output + "\n\n\tTOTAL: #{@bill.total.round(2)}"
+      @table = Terminal::Table.new
+      @table.title = 'Invoice'
+      @table.style = { border: :unicode_thick_edge }
+      @bill.line_items.each do |line_item|
+        @table.add_row([line_item.product_name, "#{line_item.quantity} units x #{line_item.product_price}"])
+        @table.add_row(['', "        discount: #{line_item.discounts.join(' ')}"]) if line_item.discounts.any?
+        @table.add_row(['', "        = #{line_item.total_price.round(2)}"])
+      end
+      @table.add_row(['-----', '------'])
+      @table.add_row(['', "TOTAL: #{@bill.total.round(2)}"])
+      @table.render
     end
   end
 end

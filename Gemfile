@@ -7,6 +7,7 @@ ruby '3.3.3'
 gem 'zeitwerk'
 
 gem 'cli-ui'
+gem 'terminal-table'
 
 group :development do
   gem 'rspec'

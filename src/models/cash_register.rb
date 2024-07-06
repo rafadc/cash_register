@@ -2,9 +2,19 @@
 
 # The class that represents our cash register
 class CashRegister
-  def add(item, quantity); end
+  def initialize
+    @items = Hash.new(0)
+  end
+
+  def add(item, quantity)
+    @items[item] += quantity
+  end
 
   def total
-    1.00
+    @total = 0.0
+    @items.each do |_item, quantity|
+      @total += quantity
+    end
+    @total
   end
 end

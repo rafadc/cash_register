@@ -5,7 +5,8 @@ module Discounts
   class DiscountRepository
     DISCOUNTS = [
       BuyOneGetOneFree.new('GR1'),
-      BulkDiscountFixedPrice.new('SR1', 3, 4.50)
+      BulkDiscountFixedPrice.new('SR1', 3, 4.50),
+      BulkDiscountPercentage.new('CF1', 3, 33)
     ].freeze
 
     def all

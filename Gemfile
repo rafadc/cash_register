@@ -6,6 +6,8 @@ ruby '3.3.3'
 
 gem 'zeitwerk'
 
+gem 'cli-ui'
+
 group :development do
   gem 'rspec'
   gem 'rubocop'

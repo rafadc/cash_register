@@ -1,3 +1,6 @@
+run:
+	bundle exec ruby src/ui/cli.rb
+
 watch:
 	ag -l | entr -c bundle exec rspec --fail-fast
 

@@ -1,0 +1,3 @@
+module CashRegister
+end
+

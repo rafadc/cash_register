@@ -8,7 +8,8 @@ It supports a shopping cart where you add elements and you can have different [d
 ```mermaid
 %%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true }}}%%
 graph LR
-    A[<b>Shopping Cart Items</b>] -->|Apply| B[<b>Discounts</b>]
+    A[<b>Shopping Cart Items</b>] -->|Get| B[<b>InvoiceCalculator</b>]
+    D[<b>Discounts</b>] -->|Apply| B[<b>InvoiceCalculator</b>]
     B -->|Generate| C[<b>Invoice</b>]
     style A fill:#FF4081,stroke:#FFF,stroke-width:2px,color:#000000
     style B fill:#2196F3,stroke:#FFF,stroke-width:2px,color:#000000

@@ -43,6 +43,7 @@ GEM
       rubocop (~> 1.61)
     ruby-progressbar (1.13.0)
     unicode-display_width (2.5.0)
+    zeitwerk (2.6.16)
 
 PLATFORMS
   ruby
@@ -52,6 +53,7 @@ DEPENDENCIES
   rspec
   rubocop
   rubocop-rspec
+  zeitwerk
 
 RUBY VERSION
    ruby 3.3.3p89

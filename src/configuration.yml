@@ -1,0 +1,22 @@
+products:
+  - code: "GR1"
+    name: "Green Tea"
+    price: 3.11
+  - code: "SR1"
+    name: "Strawberries"
+    price: 5.00
+  - code: "CF1"
+    name: "Coffee"
+    price: 11.23
+
+discounts:
+  - code: "GR1"
+    type: "buy-one-get-one-free"
+  - code: "SR1"
+    type: "bulk-discount-fixed-price"
+    min_quantity: 3
+    discount_price: 4.50
+  - code: "CF1"
+    type: "bulk-discount-percentage"
+    min_quantity: 3
+    discount_percent: 33

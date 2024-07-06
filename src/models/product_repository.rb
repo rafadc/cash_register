@@ -3,17 +3,24 @@
 # Repository class to retrieve products
 # At this moment this will work just with an in memory array of products
 class ProductRepository
-  PRODUCTS = [
-    Product.new('GR1', 'Green Tea', 3.11),
-    Product.new('SR1', 'Strawberries', 5.00),
-    Product.new('CF1', 'Coffee', 11.23)
-  ].freeze
-
   def find(id)
-    PRODUCTS.find { |product| product.id == id }
+    products.find { |product| product.id == id }
   end
 
   def all
-    PRODUCTS
+    products
+  end
+
+  private
+
+  def products
+    @products ||= read_products_from_config
+  end
+
+  def read_products_from_config
+    products = YAML.load_file('src/configuration.yml')['products']
+    products.map do |product|
+      Product.new(product['code'], product['name'], product['price'])
+    end
   end
 end

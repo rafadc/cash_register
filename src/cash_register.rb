@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+require 'yaml'
 require 'zeitwerk'
 
 loader = Zeitwerk::Loader.new

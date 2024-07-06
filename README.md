@@ -24,6 +24,8 @@ Install dependencies with `bundle install`.
 
 You can run the application with `make run` or `bundle exec ruby src/ui/cli.rb`.
 
+The products and discounts are configured in the [config file](src/configuration.yml).
+
 You will be shown the initial screen
 
 ![Initial screen](docs/initialscreen.png)

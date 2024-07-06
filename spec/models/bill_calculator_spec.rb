@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 RSpec.describe BillCalculator do
-  subject(:total_calculator) { described_class.new(shopping_cart, discount_repository:) }
+  subject(:bill_calculator) { described_class.new(discount_repository:) }
 
   let(:discount_repository) { instance_double(Discounts::DiscountRepository) }
   let(:shopping_cart) { ShoppingCart.new }
@@ -11,29 +11,27 @@ RSpec.describe BillCalculator do
       allow(discount_repository).to receive(:all).and_return([])
     end
 
-    describe '#total' do
-      it 'returns the total amount for an empty register' do
-        expect(total_calculator.total).to eq(0.0)
-      end
+    it 'returns the total amount for an empty register' do
+      expect(bill_calculator.calculate_for_cart(shopping_cart).total).to eq(0.0)
+    end
 
-      it 'calculates the total amount for a single item' do
-        shopping_cart.add('GR1', 1)
+    it 'calculates the total amount for a single item' do
+      shopping_cart.add('GR1', 1)
 
-        expect(total_calculator.total).to eq(3.11)
-      end
+      expect(bill_calculator.calculate_for_cart(shopping_cart).total).to eq(3.11)
+    end
 
-      it 'calculates the total amount when we have more than one item of the same type' do
-        shopping_cart.add('GR1', 2)
+    it 'calculates the total amount when we have more than one item of the same type' do
+      shopping_cart.add('GR1', 2)
 
-        expect(total_calculator.total).to eq(6.22)
-      end
+      expect(bill_calculator.calculate_for_cart(shopping_cart).total).to eq(6.22)
+    end
 
-      it 'calculates the total with more than one kind of item' do
-        shopping_cart.add('GR1', 1)
-        shopping_cart.add('SR1', 1)
+    it 'calculates the total with more than one kind of item' do
+      shopping_cart.add('GR1', 1)
+      shopping_cart.add('SR1', 1)
 
-        expect(total_calculator.total).to eq(8.11)
-      end
+      expect(bill_calculator.calculate_for_cart(shopping_cart).total).to eq(8.11)
     end
   end
 
@@ -45,7 +43,7 @@ RSpec.describe BillCalculator do
     it 'applies the discount to the items' do
       shopping_cart.add('GR1', 2)
 
-      expect(total_calculator.total).to eq(3.11)
+      expect(bill_calculator.calculate_for_cart(shopping_cart).total).to eq(3.11)
     end
   end
 end

@@ -12,4 +12,8 @@ class ProductRepository
   def find(id)
     PRODUCTS.find { |product| product.id == id }
   end
+
+  def all
+    PRODUCTS
+  end
 end

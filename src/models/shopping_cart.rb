@@ -4,6 +4,8 @@
 # Its purpose is to keep track of the items that we are buying
 # and turn those into line items that we can use to calculate the total
 class ShoppingCart
+  attr_reader :items
+
   def initialize(product_repository: ProductRepository.new)
     @items = Hash.new(0)
     @product_repository = product_repository

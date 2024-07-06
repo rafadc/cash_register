@@ -16,7 +16,7 @@ module Discounts
           original_quantity = item.quantity
           item.quantity = (item.quantity / 2) + (item.quantity % 2)
           total << item
-          total << LineItem.new(item.product_id, item.product_name, 0.0, original_quantity / 2, item.discount)
+          total << LineItem.new(item.product_id, item.product_name, 0.0, original_quantity / 2)
         else
           total << item
         end

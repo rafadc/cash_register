@@ -22,8 +22,7 @@ class TotalCalculator
   def total
     @total = 0.0
     discounted_line_items.each do |line_item|
-      price = @product_repository.find(line_item.product_id).price
-      @total += line_item.quantity * price
+      @total += line_item.total_price
     end
     @total
   end

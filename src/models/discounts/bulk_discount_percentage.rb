@@ -12,7 +12,7 @@ module Discounts
 
     def apply(line_items)
       line_items.reduce([]) do |total, item|
-        item.discount = item.product_price * (@percentage / 100.0) if item.quantity >= @quantity && item.product_id == @product_id
+        item.apply_discount(@percentage) if item.quantity >= @quantity && item.product_id == @product_id
 
         total << item
       end

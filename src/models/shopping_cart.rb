@@ -16,7 +16,7 @@ class ShoppingCart
   def line_items
     @items.map do |product_id, quantity|
       product = @product_repository.find(product_id)
-      LineItem.new(product_id, product.name, product.price, quantity, 0.0)
+      LineItem.new(product_id, product.name, product.price, quantity)
     end
   end
 end

@@ -2,6 +2,8 @@
 
 A simple cash register application
 
+It supports a shopping cart where you add elements and you can have different [discounts](src/models/discounts/) applied.
+
 
 ## Development
 

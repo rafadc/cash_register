@@ -15,7 +15,7 @@ class LineItem
     @discounts = []
   end
 
-  def apply_discount(percentage)
+  def apply_discount_percentage(percentage)
     @discounts << percentage
   end
 

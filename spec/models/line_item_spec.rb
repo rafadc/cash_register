@@ -9,7 +9,7 @@ RSpec.describe LineItem do
     end
 
     it 'applies discounts to the total price' do
-      line_item.apply_discount(50)
+      line_item.apply_discount_percentage(50)
       expect(line_item.total_price).to eq(2.0)
     end
   end

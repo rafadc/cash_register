@@ -4,8 +4,8 @@
 # customer. It needs to consider and note every potential discount since
 # it will be displayed in the final bill.
 class LineItem
-  attr_reader :product_id, :product_name
-  attr_accessor :quantity, :product_price, :discounts
+  attr_reader :product_id, :product_name, :discounts
+  attr_accessor :quantity, :product_price
 
   def initialize(product_id, product_name, product_price, quantity)
     @product_id = product_id

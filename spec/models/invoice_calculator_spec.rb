@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-RSpec.describe BillCalculator do
-  subject(:bill_calculator) { described_class.new(discount_repository:) }
+RSpec.describe InvoiceCalculator do
+  subject(:invoice_calculator) { described_class.new(discount_repository:) }
 
   let(:discount_repository) { instance_double(Discounts::DiscountRepository) }
   let(:shopping_cart) { ShoppingCart.new }
@@ -12,26 +12,26 @@ RSpec.describe BillCalculator do
     end
 
     it 'returns the total amount for an empty register' do
-      expect(bill_calculator.calculate_for_cart(shopping_cart).total).to eq(0.0)
+      expect(invoice_calculator.calculate_for_cart(shopping_cart).total).to eq(0.0)
     end
 
     it 'calculates the total amount for a single item' do
       shopping_cart.add('GR1', 1)
 
-      expect(bill_calculator.calculate_for_cart(shopping_cart).total).to eq(3.11)
+      expect(invoice_calculator.calculate_for_cart(shopping_cart).total).to eq(3.11)
     end
 
     it 'calculates the total amount when we have more than one item of the same type' do
       shopping_cart.add('GR1', 2)
 
-      expect(bill_calculator.calculate_for_cart(shopping_cart).total).to eq(6.22)
+      expect(invoice_calculator.calculate_for_cart(shopping_cart).total).to eq(6.22)
     end
 
     it 'calculates the total with more than one kind of item' do
       shopping_cart.add('GR1', 1)
       shopping_cart.add('SR1', 1)
 
-      expect(bill_calculator.calculate_for_cart(shopping_cart).total).to eq(8.11)
+      expect(invoice_calculator.calculate_for_cart(shopping_cart).total).to eq(8.11)
     end
   end
 
@@ -43,7 +43,7 @@ RSpec.describe BillCalculator do
     it 'applies the discount to the items' do
       shopping_cart.add('GR1', 2)
 
-      expect(bill_calculator.calculate_for_cart(shopping_cart).total).to eq(3.11)
+      expect(invoice_calculator.calculate_for_cart(shopping_cart).total).to eq(3.11)
     end
   end
 end

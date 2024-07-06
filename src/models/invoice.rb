@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # The class that holds the total value of what the user will pay
-class Bill
+class Invoice
   attr_reader :line_items
 
   def initialize

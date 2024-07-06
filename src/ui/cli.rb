@@ -7,7 +7,7 @@ require 'terminal-table'
 
 product_repository = ProductRepository.new
 shopping_cart = ShoppingCart.new(product_repository:)
-bill_calculator = BillCalculator.new
+invoice_calculator = InvoiceCalculator.new
 
 running = true
 
@@ -17,8 +17,8 @@ while running
   CLI::UI::StdoutRouter.enable
   puts Ui::ShoppingCartView.new(shopping_cart:, product_repository:).render
 
-  bill = bill_calculator.calculate_for_cart(shopping_cart)
-  puts Ui::BillView.new(bill:).render
+  invoice = invoice_calculator.calculate_for_cart(shopping_cart)
+  puts Ui::InvoiceView.new(invoice:).render
 
   CLI::UI::Prompt.ask('add products to shopping cart') do |handler|
     product_repository.all.each do |product|

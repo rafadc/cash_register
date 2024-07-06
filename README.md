@@ -6,12 +6,14 @@ It supports a shopping cart where you add elements and you can have different [d
 
 
 ```mermaid
+%%{init: {'theme': 'dark', 'themeVariables': { 'darkMode': true }}}%%
 graph LR
     A[<b>Shopping Cart Items</b>] -->|Apply| B[<b>Discounts</b>]
     B -->|Generate| C[<b>Invoice</b>]
-    style A fill:#f9d5e5,stroke-width:2px
-    style B fill:#eeac99,stroke-width:2px
-    style C fill:#e6d7b9,stroke-width:2px
+    style A fill:#FF4081,stroke:#FFF,stroke-width:2px,color:#000000
+    style B fill:#2196F3,stroke:#FFF,stroke-width:2px,color:#000000
+    style C fill:#FFC107,stroke:#FFF,stroke-width:2px,color:#000000
+    linkStyle 0,1 stroke:#FFF,stroke-width:2px
 ```
 
 The basic workflow is that you have a shopping cart where you add items, then the invoice calculator will apply all the discounts and generate a proper invoice. In the UI we will display both the shopping cart and the invoice.

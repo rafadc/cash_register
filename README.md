@@ -7,11 +7,11 @@ It supports a shopping cart where you add elements and you can have different [d
 
 ```mermaid
 graph LR
-    A[Shopping Cart Items] -->|Apply| B[Discounts]
-    B -->|Generate| C[Invoice]
-    style A fill:#f9d5e5,stroke:#333,stroke-width:2px
-    style B fill:#eeac99,stroke:#333,stroke-width:2px
-    style C fill:#e6d7b9,stroke:#333,stroke-width:2px
+    A[<b>Shopping Cart Items</b>] -->|Apply| B[<b>Discounts</b>]
+    B -->|Generate| C[<b>Invoice</b>]
+    style A fill:#f9d5e5,stroke-width:2px
+    style B fill:#eeac99,stroke-width:2px
+    style C fill:#e6d7b9,stroke-width:2px
 ```
 
 The basic workflow is that you have a shopping cart where you add items, then the invoice calculator will apply all the discounts and generate a proper invoice. In the UI we will display both the shopping cart and the invoice.
@@ -21,6 +21,16 @@ The basic workflow is that you have a shopping cart where you add items, then th
 Install dependencies with `bundle install`.
 
 You can run the application with `make run` or `bundle exec ruby src/ui/cli.rb`.
+
+You will be shown the initial screen
+
+![Initial screen](docs/initial_screen.png)
+
+You can add or remove items from the cart using the number keys or the cursor.
+
+When you are done adding items, you can press `Checkout` finish:
+
+![A screen with some elements added](docs/finalscreen.png)
 
 ## Development
 

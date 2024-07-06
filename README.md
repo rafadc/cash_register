@@ -24,7 +24,7 @@ You can run the application with `make run` or `bundle exec ruby src/ui/cli.rb`.
 
 You will be shown the initial screen
 
-![Initial screen](docs/initial_screen.png)
+![Initial screen](docs/initialscreen.png)
 
 You can add or remove items from the cart using the number keys or the cursor.
 

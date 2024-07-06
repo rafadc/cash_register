@@ -39,7 +39,7 @@ RSpec.describe TotalCalculator do
 
   context 'when we have discounts' do
     before do
-      allow(discount_repository).to receive(:all).and_return([Discounts::BuyOneGetOneFree.new])
+      allow(discount_repository).to receive(:all).and_return([Discounts::BuyOneGetOneFree.new('GR1')])
     end
 
     it 'applies the discount to the items' do

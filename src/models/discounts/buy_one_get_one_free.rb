@@ -6,9 +6,13 @@ module Discounts
   # the free items will not count towards bulk discounts if this
   # has more precedence than other discount.
   class BuyOneGetOneFree
+    def initialize(product_id)
+      @product_id = product_id
+    end
+
     def apply(items)
       items.reduce([]) do |total, item|
-        if item.quantity >= 2
+        if item.quantity >= 2 && item.product_id == @product_id
           original_quantity = item.quantity
           item.quantity = (item.quantity / 2) + (item.quantity % 2)
           total << item

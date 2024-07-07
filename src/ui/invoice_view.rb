@@ -22,9 +22,17 @@ module Ui
     private
 
     def add_line_item_rows(line_item)
-      @table.add_row([line_item.product_name, "#{line_item.quantity} units x #{line_item.product_price}"])
+      @table.add_row([line_item.product_name, "#{line_item.quantity} units x #{format_price(line_item.product_price)}"])
       @table.add_row(['', "        discount: #{line_item.discounts.join(' ')}"]) if line_item.discounts.any?
       @table.add_row(['', "        = #{line_item.total_price.round(2)}"])
+    end
+
+    def format_price(price)
+      if price.zero?
+        '**FREE**'
+      else
+        format('%.2f', price)
+      end
     end
   end
 end

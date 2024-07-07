@@ -6,3 +6,6 @@ watch:
 
 console:
 	irb -I . -r src/cash_register.rb
+
+test:
+	bundle exec rspec

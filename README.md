@@ -25,15 +25,15 @@ Install dependencies with `bundle install`.
 
 You can run the application with `make run` or `bundle exec ruby src/ui/cli.rb`.
 
-The products and discounts are configured in the [config file](src/configuration.yml).
+The **products and discounts** are configured in the **[config file](src/configuration.yml)**.
 
-You will be shown the initial screen
+Once you start the application you will be shown the initial screen
 
 ![Initial screen](docs/initialscreen.png)
 
 You can add or remove items from the cart using the number keys or the cursor.
 
-When you are done adding items, you can press `Checkout` finish:
+When you are done adding items, you can press `Checkout` to exit the application:
 
 ![A screen with some elements added](docs/finalscreen.png)
 
@@ -43,4 +43,5 @@ There are a couple of tasks in a makefile to help with development:
 
 - `make watch` - Runs the tests on every file change. It requires `entr` and `ag` to be installed.
 - `make console` - Starts a Irb console with the application loaded.
-
+- `make run` - Runs the application.
+- `make test` - Runs the tests.
